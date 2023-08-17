@@ -2,13 +2,13 @@
 from sqlalchemy.orm import Session, sessionmaker
 
 from fastapi import FastAPI
-from config import DB_URL, DB_HASH_URL
+from config import DB_URL, DB_SALT_URL
 
 # --- Внимание! Говнокод
 
 engine = create_engine(DB_URL, connect_args={})
 
-hash_engine = create_engine(DB_HASH_URL, connect_args={})
+hash_engine = create_engine(DB_SALT_URL, connect_args={})
 
 def connect_db(app : FastAPI) -> Session:
     # Подключение к базе данных

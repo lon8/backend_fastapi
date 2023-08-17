@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Body, Depends
-from forms import UserCreateModel, UserLoginModel
-from dbfuncs import get_db, get_salt_db
-from dbmodels import User
+from db.forms import UserCreateModel, UserLoginModel
+from db.dbfuncs import get_db, get_salt_db
+from db.dbmodels import User
 from hash.model import Salt
 
 from sqlalchemy.orm import Session
@@ -16,7 +16,7 @@ router = APIRouter() # Create router object
 # Login handler
 @router.post('/login', name='user:login')
 def login(user_form : UserLoginModel = Body(..., embed=True)):
-    
+    print('kek')
 
 # Registration handler-
 @router.post('/users/')

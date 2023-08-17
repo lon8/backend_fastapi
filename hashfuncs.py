@@ -1,4 +1,6 @@
-﻿import hashlib
+﻿from sqlalchemy.orm import Session
+from db.dbmodels import User
+import hashlib
 import secrets
 
 def generate_salt(length=16):
@@ -8,6 +10,10 @@ def hash_with_salt(data, salt):
     data_with_salt = f"{salt}{data}"
     hashed_data = hashlib.sha256(data_with_salt.encode()).hexdigest()
     return hashed_data
+
+def get_passwords(session : Session) -> list[str]:
+    passwords = session.query(User.password).all()
+    return [password[0] for password in passwords]
 
 def hash_data(data):
     salt = generate_salt()

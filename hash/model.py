@@ -1,10 +1,10 @@
 from sqlalchemy import Column, String, Integer, create_engine
 
 from sqlalchemy.ext.declarative import declarative_base
-from config import DB_HASH_URL
+from config import DB_SALT_URL
 
 
-engine = create_engine(DB_HASH_URL, connect_args={})
+engine = create_engine(DB_SALT_URL, connect_args={})
 
 Base = declarative_base()
 

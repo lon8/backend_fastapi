@@ -1,10 +1,13 @@
-﻿DB_CONFIG = { # Вносим сюда свои данные
-    "host": "localhost", 
-    "user": "root", 
-    "password": "132465-Cs",
-    "database": "hashes",
-    "port": "3306"
-}
+﻿import configparser
+import os
 
+config_path = os.path.join(os.path.dirname(__file__), "../config.ini")
 
-DB_HASH_URL = f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
+# Создайте объект ConfigParser и прочитайте конфигурацию
+config = configparser.ConfigParser()
+config.read(config_path, encoding='utf-8-sig')
+
+# Получите параметры конфигурации
+DB_URL = config.get('DBCONF', 'DB_URL')
+DB_SALT_URL = config.get('DBSALTCONF', 'DB_URL')
+

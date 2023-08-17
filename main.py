@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from handlers import router
-from dbfuncs import connect_db
+from db.dbfuncs import connect_db
 
 
 # APP CREATE
