@@ -3,7 +3,7 @@ from pydantic import BaseModel
 # --- Forms
 
 class UserLoginModel(BaseModel): # Login form
-    email : str
+    nickname : str
     password : str
 
 class UserCreateModel(BaseModel): # Registration form

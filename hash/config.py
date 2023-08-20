@@ -9,5 +9,5 @@ config.read(config_path, encoding='utf-8-sig')
 
 # Получите параметры конфигурации
 DB_URL = config.get('DBCONF', 'DB_URL')
-DB_SALT_URL = config.get('DBSALTCONF', 'DB_URL')
+DB_HASH_URL = config.get('DBSALTCONF', 'DB_URL')
 

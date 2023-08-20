@@ -31,12 +31,11 @@ class User(Base): # User Model
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
-    email = Column(String(256))
+    email : str = Column(String(256))
     firstname = Column(String(256))
     lastname = Column(String(256))
-    password = Column(String(256))
     nickname = Column(String(256))
-
+    
 
 class Stream(Base): # Stream Model
     __tablename__ = 'stream'
